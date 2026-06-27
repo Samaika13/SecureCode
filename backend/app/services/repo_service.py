@@ -7,12 +7,20 @@ class RepositoryService:
     """Handles operations related to GitHub repositories"""
     GITHUB_PATTERN = r"^https://github\.com/[\w.-]+/[\w.-]+/?$"
 
+    REPOSITORY_DIRECTORY = Path("repos")
+
+    SUPPORTED_EXTENSIONS = {
+            ".py",
+            ".js",
+            ".ts",
+            ".tsx",
+            ".java"
+        }
+    
     @staticmethod
     def validate_github_url(url: str) -> bool:
         """Returns True if URL is a valid GitHub repository URL"""
         return re.match(RepositoryService.GITHUB_PATTERN, url) is not None
-    
-    REPOSITORY_DIRECTORY = Path("repos")
 
     @staticmethod
     def get_repository_name(repo_url: str) -> str:
@@ -28,19 +36,31 @@ class RepositoryService:
     
     @staticmethod
     def clone_repository(repo_url: str) -> Path:
-        """clones github repo if it's not already clones and returns local math to repo"""
+        """Clones a GitHub repository if it has not already been cloned and returns the local path."""
         repo_name = RepositoryService.get_repository_name(repo_url)
         local_path = (
             RepositoryService.REPOSITORY_DIRECTORY / repo_name
         )
 
-        """create repos directory if it doesn't exist"""
+        # Create the repos directory if it doesn't exist
         RepositoryService.REPOSITORY_DIRECTORY.mkdir(exist_ok=True)
         
-        """If already cloned, then it just returns the path"""
+        # If already cloned...
         if local_path.exists():
             return local_path
 
-        """otherwise, clone it"""
+        # Otherwise clone it
         Repo.clone_from(repo_url, local_path)
         return local_path
+    
+    @staticmethod
+    def list_source_files(repo_path: Path) -> list[Path]:
+        """Returns all supported source code files in the repository."""
+
+        source_files = []
+
+        for file in repo_path.rglob("*"):
+            if file.is_file() and file.suffix in RepositoryService.SUPPORTED_EXTENSIONS:
+                source_files.append(file)
+
+        return source_files
