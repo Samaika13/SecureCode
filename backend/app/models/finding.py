@@ -1,7 +1,6 @@
-from dataclasses import dataclass
+from pydantic import BaseModel
 
-@dataclass
-class Finding:
+class Finding(BaseModel):
     """represents a security finding detected by scanner"""
 
     file: str
