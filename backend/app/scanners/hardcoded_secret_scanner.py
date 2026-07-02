@@ -22,11 +22,15 @@ class HardcodedSecretScanner:
                     if keyword in line.upper():
                         findings.append(
                             Finding(
+                                scanner="Hardcoded Secret",
                                 file=str(file_path),
                                 line=line_number,
                                 keyword=keyword,
                                 severity="HIGH",
-                                message=f"Possible hardcoded {keyword} detected."
+                                confidence="HIGH",
+                                cwe="CWE-798",
+                                message=f"Possible hardcoded {keyword} detected.",
+                                recommendation="Store secrets in environment variables."
                             )
                         )
         return findings

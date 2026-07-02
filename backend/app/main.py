@@ -36,11 +36,15 @@ def scan(request: ScanRequest):
 
         # scan the repo
         findings = ScanService.scan_repository(repo_path)
+        summary = ScanService.summarize_findings(findings)
+        risk = ScanService.calculate_risk(findings)
 
         # return the results
         return ScanResponse(
             repository=repo_path.name,
             total_findings=len(findings),
+            summary=summary,
+            risk=risk,
             findings=findings
         )
     

@@ -17,11 +17,15 @@ class SQLInjectionScanner:
                     if keyword in line.upper():
                         findings.append(
                             Finding(
+                                scanner="SQL Injection",
                                 file=str(file_path),
                                 line=line_number,
                                 keyword=keyword,
                                 severity="MEDIUM",
-                                message=f"Possible SQL query detected containing '{keyword}'."
+                                confidence="HIGH",
+                                cwe="CWE-89",
+                                message=f"Possible SQL query detected containing '{keyword}'.",
+                                recommendation="Use parameterized SQL queries."
                             )
                         )
 

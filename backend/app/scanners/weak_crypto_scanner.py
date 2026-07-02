@@ -22,11 +22,15 @@ class WeakCryptoScanner:
                     if algorithm.lower() in line.lower():
                         findings.append(
                             Finding(
+                                scanner="Weak Cryptography",
                                 file=str(file_path),
                                 line=line_number,
                                 keyword=algorithm,
                                 severity="MEDIUM",
+                                confidence="HIGH",
+                                cwe="CWE-327",
                                 message=f"Weak cryptographic algorithm '{algorithm}' detected."
+                                recommendation="Use SHA-256 or stronger algorithms."
                             )
                         )
         return findings

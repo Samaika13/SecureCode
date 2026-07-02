@@ -23,11 +23,15 @@ class CommandInjectionScanner:
                     if pattern.lower() in line.lower():
                         findings.append(
                             Finding(
+                                scanner="Command Injection",
                                 file=str(file_path),
                                 line=line_number,
                                 keyword=pattern,
                                 severity="HIGH",
-                                message=f"Possible command injection using '{pattern}'."
+                                confidence="HIGH",
+                                cwe="CWE-78",
+                                message=f"Possible command injection using '{pattern}'.",
+                                recommendation="Avoid executing user input. Prefer subprocess.run(..., shell=False)."
                             )
                         )
         return findings
