@@ -1,6 +1,6 @@
 # SecureCode
 
-> AI-powered security analysis platform that detects vulnerabilities in GitHub repositories and generates intelligent remediation recommendations.
+> AI-powered static security scanner for GitHub repositories with custom vulnerability detection and an interactive React dashboard.
 
 ![Status](https://img.shields.io/badge/status-under_development-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
