@@ -1,0 +1,58 @@
+.finding-card {
+    background: #1f2937;
+    border-left:6px solid #2563eb;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 18px;
+    transition:.25s;
+}
+
+.finding-card h3 {
+    margin-bottom: 15px;
+}
+
+.finding-card p {
+    margin: 8px 0;
+}
+
+.finding-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.finding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.severity {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: bold;
+}
+
+.high {
+    background: #dc2626;
+}
+
+.medium {
+    background: #f59e0b;
+}
+
+.low {
+    background: #16a34a;
+}
+
+.scanner {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.recommendation {
+    margin-top: 15px;
+    background: #111827;
+    padding: 12px;
+    border-radius: 8px;
+}

@@ -6,7 +6,7 @@ class WeakCryptoScanner:
     """Detects weak cryptographic algorithms."""
 
     WEAK_ALGORITHMS = [
-        "hashlin.md5(",
+        "hashlib.md5(",
         "hashlib.sha1(",
         ".md5(",
         ".sha1(",
@@ -29,7 +29,7 @@ class WeakCryptoScanner:
                                 severity="MEDIUM",
                                 confidence="HIGH",
                                 cwe="CWE-327",
-                                message=f"Weak cryptographic algorithm '{algorithm}' detected."
+                                message=f"Weak cryptographic algorithm '{algorithm}' detected.",
                                 recommendation="Use SHA-256 or stronger algorithms."
                             )
                         )

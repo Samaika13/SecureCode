@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.schemas.scan_request import ScanRequest
 from app.schemas.scan_response import ScanResponse
 from app.services.repo_service import RepositoryService
@@ -9,6 +11,16 @@ app = FastAPI(
     title="SecureCode API",
     description="AI-powered security analysis platform",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/")
