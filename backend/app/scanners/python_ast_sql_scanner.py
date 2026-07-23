@@ -27,7 +27,7 @@ class SQLVisitor(ast.NodeVisitor):
                             severity="HIGH",
                             confidence="HIGH",
                             cwe="CWE-89",
-                            message="SQL query built using string concatenation."
+                            message="SQL query built using string concatenation.",
                             recommendation="Use parameterized SQL queries instead of building SQL using string concatenation."
                         )
                     )

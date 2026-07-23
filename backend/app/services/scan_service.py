@@ -2,9 +2,8 @@ from pathlib import Path
 
 from app.models.finding import Finding
 from app.scanners.hardcoded_secret_scanner import HardcodedSecretScanner
-from app.scanners.sql_injection_scanner import SQLInjectionScanner
-from app.scanners.command_injection_scanner import CommandInjectionScanner
 from app.scanners.weak_crypto_scanner import WeakCryptoScanner
+from app.scanners.python_ast_sql_scanner import PythonASTSQLScanner
 from app.services.repo_service import RepositoryService
 from app.models.risk import RiskSummary
 
@@ -14,8 +13,7 @@ class ScanService:
 
     SCANNERS = [
         HardcodedSecretScanner,
-        SQLInjectionScanner,
-        CommandInjectionScanner,
+        PythonASTSQLScanner,
         WeakCryptoScanner,
     ]
 
