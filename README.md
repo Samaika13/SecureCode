@@ -7,10 +7,6 @@ A modern AI-assisted static code analysis platform that scans GitHub repositorie
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
----
-
-## 📖 Overview
-
 SecureCode analyzes public GitHub repositories using custom-built static analysis scanners to identify potential security vulnerabilities.
 
 Instead of simply listing findings, SecureCode provides:
@@ -23,6 +19,12 @@ Instead of simply listing findings, SecureCode provides:
 - Downloadable JSON reports
 
 The goal is to make security analysis simple, visual, and developer-friendly.
+
+---
+
+# Live Demo
+
+https://securecode-tau.vercel.app/
 
 ---
 
@@ -211,7 +213,7 @@ npm run dev
 
 ### Home
 
-_Add screenshot here_
+![Home](assets/home.png)
 
 ---
 
