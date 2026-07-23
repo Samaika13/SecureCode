@@ -1,58 +1,97 @@
-.finding-card {
-    background: #1f2937;
+.finding-card{
+    background:#1f2937;
     border-left:6px solid #2563eb;
-    border-radius: 14px;
-    padding: 20px;
-    margin-bottom: 18px;
+    border-radius:16px;
+    padding:22px;
     transition:.25s;
-}
-
-.finding-card h3 {
-    margin-bottom: 15px;
-}
-
-.finding-card p {
-    margin: 8px 0;
+    overflow:hidden;
 }
 
 .finding-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
-.finding-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.finding-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    cursor:pointer;
 }
 
-.severity {
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-weight: bold;
+.finding-header h2{
+    margin:14px 0 0;
+    color:white;
+    font-size:18px;
+    line-height:1.4;
 }
 
-.high {
-    background: #dc2626;
+.finding-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    color:#cbd5e1;
+    font-size:15px;
+    white-space:nowrap;
 }
 
-.medium {
-    background: #f59e0b;
+.expand-icon{
+    font-size:18px;
+    transition:.25s;
 }
 
-.low {
-    background: #16a34a;
+.finding-body{
+    margin-top:25px;
+    animation:fadeIn .25s ease;
 }
 
-.scanner {
-    color: #cbd5e1;
-    font-size: 14px;
+.finding-body p{
+    margin:10px 0;
+    color:#d1d5db;
+    line-height:1.6;
 }
 
-.recommendation {
-    margin-top: 15px;
-    background: #111827;
-    padding: 12px;
-    border-radius: 8px;
+.finding-body strong{
+    color:white;
+}
+
+.severity-badge{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:999px;
+    font-weight:700;
+    color:white;
+    font-size:14px;
+}
+
+.high{
+    background:#dc2626;
+}
+
+.medium{
+    background:#d97706;
+}
+
+.low{
+    background:#16a34a;
+}
+
+.recommendation{
+    margin-top:20px;
+    background:#111827;
+    border-radius:12px;
+    padding:16px;
+    color:#f3f4f6;
+    line-height:1.6;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }

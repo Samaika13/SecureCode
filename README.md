@@ -1,84 +1,258 @@
-# SecureCode
+# 🛡️ SecureCode
 
-> AI-powered static security scanner for GitHub repositories with custom vulnerability detection and an interactive React dashboard.
+A modern AI-assisted static code analysis platform that scans GitHub repositories for common security vulnerabilities and presents the results through an interactive security dashboard.
 
-![Status](https://img.shields.io/badge/status-under_development-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-
----
-
-## Overview
-
-SecureCode is an AI-powered application that analyzes source code repositories for security vulnerabilities using static analysis and Large Language Models (LLMs).
-
-Instead of only identifying vulnerabilities, SecureCode explains:
-
-- Why the vulnerability exists
-- Potential attack scenarios
-- OWASP references
-- Secure code fixes
-- Severity assessment
-
-Future versions will incorporate Agentic AI workflows capable of researching vulnerabilities, generating secure patches, and validating fixes automatically.
+![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react)
+![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi)
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## Features
+## 📖 Overview
 
-- GitHub Repository Analysis
-- Static Security Scanner
-- AI-Powered Vulnerability Explanations
-- Security Risk Dashboard
-- PDF Security Reports
-- OWASP Knowledge Integration
-- Agentic AI Remediation (Planned)
+SecureCode analyzes public GitHub repositories using custom-built static analysis scanners to identify potential security vulnerabilities.
+
+Instead of simply listing findings, SecureCode provides:
+
+- Security severity summaries
+- Risk scoring
+- Interactive charts
+- Search and filtering
+- Expandable vulnerability explanations
+- Downloadable JSON reports
+
+The goal is to make security analysis simple, visual, and developer-friendly.
 
 ---
 
-## Tech Stack
+## ✨ Features
+
+- 🔍 Scan any public GitHub repository
+- 🔐 Detect hardcoded secrets
+- 💉 Detect SQL injection patterns using Python AST analysis
+- 🔑 Detect weak cryptographic algorithms
+- 📊 Interactive dashboard
+- 📈 Severity distribution chart
+- 📉 Scanner distribution chart
+- 🎯 Risk Score calculation
+- 🔎 Search findings instantly
+- 🚦 Filter by severity
+- 🔀 Sort findings
+- 📂 Expandable finding cards
+- 📄 Download JSON security reports
+- ⚡ Loading overlay while scanning
+- 🌙 Modern dark UI
+
+---
+
+## 🏗️ Tech Stack
 
 ### Frontend
+
 - React
-- TypeScript
-- Tailwind CSS
+- Vite
+- Axios
+- Recharts
+- CSS
 
 ### Backend
+
 - FastAPI
 - Python
-
-### AI
-- Google Gemini
-- LangGraph (Planned)
-
-### Database
-- PostgreSQL
-
-### Deployment
-- Docker
-- GitHub Actions
-- Render
+- GitPython
+- AST (Abstract Syntax Tree)
+- Pydantic
 
 ---
 
-## Project Roadmap
+## 🔍 Security Scanners
 
-### Phase 1
-- Repository cloning
-- Static vulnerability detection
-- Dashboard
+### Hardcoded Secret Scanner
 
-### Phase 2
-- AI explanations
-- Security reports
-- Severity scoring
+Detects:
 
-### Phase 3
-- RAG over OWASP
-- Multi-agent workflow
-- GitHub Pull Request generation
+- API Keys
+- Passwords
+- Tokens
+- Secrets
+
+Severity:
+HIGH
 
 ---
 
-## Author
+### Python AST SQL Scanner
 
-Built by Samaika Kanwar
+Uses Python's Abstract Syntax Tree (AST) to detect SQL queries built using string concatenation.
+
+Example:
+
+```python
+query = "SELECT * FROM users WHERE id=" + user_input
+cursor.execute(query)
+```
+
+Severity:
+HIGH
+
+---
+
+### Weak Cryptography Scanner
+
+Detects insecure cryptographic algorithms including:
+
+- MD5
+- SHA1
+- DES
+- RC4
+
+Severity:
+MEDIUM
+
+---
+
+## 📊 Dashboard
+
+The dashboard includes:
+
+- Total Findings
+- Repository Name
+- Risk Score
+- Severity Breakdown
+- Severity Pie Chart
+- Scanner Distribution Chart
+- Search
+- Filters
+- Sorting
+- Expandable Findings
+- JSON Report Download
+
+---
+
+## 🚀 Project Structure
+
+```
+SecureCode/
+│
+├── backend/
+│   ├── app/
+│   │   ├── scanners/
+│   │   ├── routers/
+│   │   ├── services/
+│   │   ├── models/
+│   │   └── main.py
+│   │
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone
+
+```bash
+git clone https://github.com/Samaika13/SecureCode
+
+cd SecureCode
+```
+
+### Backend
+
+```bash
+cd backend
+
+python -m venv venv
+
+source venv/bin/activate
+```
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Install packages
+
+```bash
+pip install -r requirements.txt
+```
+
+Run
+
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+
+### Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
+
+## 📸 Screenshots
+
+### Home
+
+_Add screenshot here_
+
+---
+
+### Dashboard
+
+_Add screenshot here_
+
+---
+
+### Expanded Finding
+
+_Add screenshot here_
+
+---
+
+## 🎯 Future Improvements
+
+- Additional security scanners
+- Multi-language support
+- Authentication
+- Repository history
+- PDF reports
+- GitHub App integration
+- CI/CD integration
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👤 Author
+
+**Samaika Kanwar**
+
+Computer Science Student
+
+Purdue University
+
+GitHub: https://github.com/Samaika13
+
+LinkedIn: https://www.linkedin.com/in/samaikakanwar/

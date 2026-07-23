@@ -1,15 +1,17 @@
 import "./RepositoryForm.css";
 import { useState } from "react";
 import api from "../services/api";
-
+import LoadingOverlay from "./LoadingOverlay";
 
 function RepositoryForm({ onScanComplete }) {
 
-    const [repositoryUrl, setRepositoryUrl] = useState("");
+    console.log("onScanComplete:", onScanComplete);
 
+    const [repositoryUrl, setRepositoryUrl] = useState("");
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
+
         event.preventDefault();
 
         if (!repositoryUrl.trim()) {
@@ -19,43 +21,63 @@ function RepositoryForm({ onScanComplete }) {
         setLoading(true);
 
         try {
+
             const response = await api.post(
                 "/scan",
-                { repository_url: repositoryUrl }
+                {
+                    repository_url: repositoryUrl
+                }
             );
 
-            onScanComplete(response.data);
-        }
+            console.log("Response:", response.data);
+            console.log("Callback:", onScanComplete);
 
-        catch (error) {
+            if (typeof onScanComplete === "function") {
+                onScanComplete(response.data);
+            } else {
+                console.error("onScanComplete is not a function!");
+            }
+
+        } catch (error) {
+
+            console.log(error);
+            console.log(error.response);
+            console.log(error.response?.data);
+
             alert("Failed to scan repository.");
+
+        } finally {
+
+            setLoading(false);
+
         }
 
-        finally {
-            setLoading(false);
-        }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+            <LoadingOverlay visible={loading} />
 
-            <input
-                type="text"
-                placeholder="Paste GitHub repository URL..."
-                value={repositoryUrl}
-                onChange={(event) =>
-                    setRepositoryUrl(event.target.value)
-                }
-            />
+            <form onSubmit={handleSubmit}>
 
-            <button 
-                type="submit"
-                disabled={loading}
-            >
-                {loading ? "Scanning..." : "Scan Repository"}
-            </button>
+                <input
+                    type="text"
+                    placeholder="Paste GitHub repository URL..."
+                    value={repositoryUrl}
+                    onChange={(event) =>
+                        setRepositoryUrl(event.target.value)
+                    }
+                />
 
-        </form>
+                <button
+                    type="submit"
+                    disabled={loading}
+                >
+                    {loading ? "Scanning..." : "🔍 Scan Repository"}
+                </button>
+
+            </form>
+        </>
     );
 }
 

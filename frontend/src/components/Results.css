@@ -21,22 +21,38 @@
 }
 
 .summary-card {
-    flex: 1;
-    background: #1f2937;
-    color: white;
-    border-radius: 14px;
-    padding: 25px;
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 28px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    transition:.25s;
+}
+
+.summary-card:hover{
+    transform:translateY(-4px);
 }
 
 .summary-card h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 38px;
+    margin-bottom: 8px;
 }
 
 .summary-card p {
-    color: #cbd5e1;
+    color: #94a3b8;
+}
+
+.summary-card:nth-child(3){
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1e40af
+    );
+    color:white;
+}
+
+.summary-card:nth-child(3) p{
+    color:#e5e7eb;
 }
 
 .severity-summary{
@@ -74,6 +90,12 @@
 .show-more-container{
     text-align:center;
     margin:40px 0;
+}
+
+.findings-list{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
 }
 
 .show-more-button{
@@ -140,4 +162,72 @@
 
 .download-button:hover{
     background:#1d4ed8;
+}
+
+.filter-buttons{
+    display:flex;
+    gap:12px;
+    margin:25px 0;
+    flex-wrap:wrap;
+}
+
+.filter-buttons button{
+    flex:1;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#1f2937;
+    color:white;
+    cursor:pointer;
+    transition:all .25s ease;
+    font-size:16px;
+    font-weight:600;
+}
+
+.filter-buttons button:hover{
+    background:#334155;
+}
+
+.active-filter{
+    background:#2563eb;
+    color:white;
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 10px rgba(255,255,255,.15),
+        0 0 18px rgba(96,165,250,.55),
+        0 0 40px rgba(147,197,253,.45);
+}
+
+.sort-container{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:12px;
+    margin:25px 0;
+}
+
+.sort-container label{
+    color:#cbd5e1;
+    font-weight:600;
+}
+
+.sort-container select{
+    background:#1f2937;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:10px 16px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.sort-container select:focus{
+    outline:none;
+    box-shadow:0 0 0 2px #3b82f6;
+}
+
+.scan-again-container{
+    display:flex;
+    justify-content:center;
+    margin:50px 0 20px;
 }

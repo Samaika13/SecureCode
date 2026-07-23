@@ -13,10 +13,12 @@ function Home() {
 
             <div className="hero">
 
-                <h1>🛡️ SecureCode AI</h1>
+            <h1 className="app-title">
+                🛡️ SecureCode
+            </h1>
 
                 <p>
-                    AI-powered Static Application Security Testing
+                    Analyze GitHub repositories for security vulnerabilities using fast, reliable static analysis.
                 </p>
 
             </div>
