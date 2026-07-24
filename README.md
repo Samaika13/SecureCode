@@ -22,33 +22,55 @@ The goal is to make security analysis simple, visual, and developer-friendly.
 
 ---
 
-# Live Demo
+## Live Demo
 
-https://securecode-tau.vercel.app/
+**Frontend:** https://securecode-tau.vercel.app/
 
----
-
-## ✨ Features
-
-- 🔍 Scan any public GitHub repository
-- 🔐 Detect hardcoded secrets
-- 💉 Detect SQL injection patterns using Python AST analysis
-- 🔑 Detect weak cryptographic algorithms
-- 📊 Interactive dashboard
-- 📈 Severity distribution chart
-- 📉 Scanner distribution chart
-- 🎯 Risk Score calculation
-- 🔎 Search findings instantly
-- 🚦 Filter by severity
-- 🔀 Sort findings
-- 📂 Expandable finding cards
-- 📄 Download JSON security reports
-- ⚡ Loading overlay while scanning
-- 🌙 Modern dark UI
+**Backend API (Swagger):** https://securecode.onrender.com/docs
 
 ---
 
-## 🏗️ Tech Stack
+## Screenshots
+
+### Home
+
+![Home](assets/home.png)
+
+---
+
+### Dashboard
+
+![Dashboard](assets/dashboard.png)
+
+---
+
+### Expanded Finding
+
+![Expanded Finding](assets/expanded.png)
+
+---
+
+## Features
+
+- Scan any public GitHub repository
+- Detect hardcoded secrets
+- Detect SQL injection patterns using Python AST analysis
+- Detect weak cryptographic algorithms
+- Interactive dashboard
+- Severity distribution chart
+- Scanner distribution chart
+- Risk Score calculation
+- Search findings instantly
+- Filter by severity
+- Sort findings
+- Expandable finding cards
+- Download JSON security reports
+- Loading overlay while scanning
+- Modern dark UI
+
+---
+
+## Tech Stack
 
 ### Frontend
 
@@ -56,19 +78,42 @@ https://securecode-tau.vercel.app/
 - Vite
 - Axios
 - Recharts
-- CSS
+- CSS3
 
 ### Backend
 
 - FastAPI
-- Python
+- Python 3.11
 - GitPython
-- AST (Abstract Syntax Tree)
 - Pydantic
+- Python AST
 
 ---
 
-## 🔍 Security Scanners
+## Architecture
+
+```text
+React Frontend
+       │
+       ▼
+FastAPI Backend
+       │
+       ▼
+Clone GitHub Repository
+       │
+       ▼
+Run Security Scanners
+       │
+       ▼
+Generate Risk Report
+       │
+       ▼
+Interactive Dashboard
+```
+
+---
+
+## Security Scanners
 
 ### Hardcoded Secret Scanner
 
@@ -114,25 +159,22 @@ MEDIUM
 
 ---
 
-## 📊 Dashboard
+## Dashboard
 
-The dashboard includes:
+The dashboard provides:
 
-- Total Findings
-- Repository Name
-- Risk Score
-- Severity Breakdown
-- Severity Pie Chart
-- Scanner Distribution Chart
-- Search
-- Filters
-- Sorting
-- Expandable Findings
-- JSON Report Download
+- Repository overview
+- Severity statistics
+- Risk score
+- Interactive charts
+- Search and filtering
+- Sort findings
+- Expandable vulnerability details
+- Downloadable JSON reports
 
 ---
 
-## 🚀 Project Structure
+## Project Structure
 
 ```
 SecureCode/
@@ -157,12 +199,12 @@ SecureCode/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ### Clone
 
 ```bash
-git clone https://github.com/Samaika13/SecureCode
+git clone https://github.com/Samaika13/SecureCode.git
 
 cd SecureCode
 ```
@@ -209,27 +251,7 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
-
-### Home
-
-![Home](assets/home.png)
-
----
-
-### Dashboard
-
-_Add screenshot here_
-
----
-
-### Expanded Finding
-
-_Add screenshot here_
-
----
-
-## 🎯 Future Improvements
+## Future Improvements
 
 - Additional security scanners
 - Multi-language support
@@ -241,13 +263,13 @@ _Add screenshot here_
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 👤 Author
+## Author
 
 **Samaika Kanwar**
 
